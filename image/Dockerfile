@@ -49,4 +49,4 @@ RUN apt-get clean &&\
     rm -f /etc/ssh/ssh_host_*
 
 # add pandoc to the path
-ENV PATH=${PATH}:/root/.cabal/bin/pandoc
+ENV PATH=${PATH}:/root/.cabal/bin/
