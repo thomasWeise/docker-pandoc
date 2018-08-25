@@ -19,7 +19,10 @@ RUN apt-get clean &&\
     apt-get autoremove -y &&\
     apt-get update &&\
 # install tzdata, which we will need down the line
-    apt-get install -f -y tzdata=2018d* &&\
+    apt-get install -f -y tzdata &&\
+# install zlib1g, as we will need it later on
+    apt-get install -f -y zlib1g \
+                          zlib1g-dev &&\
 # we install cabal, a Haskell package manager, because we want the newest
 # pandoc and filters which we can only get from there
     apt-get install -f -y cabal-install &&\
