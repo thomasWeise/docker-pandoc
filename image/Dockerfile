@@ -39,6 +39,9 @@ RUN apt-get clean &&\
                   pandoc-citeproc \
                   pandoc-crossref \
                   latex-formulae-pandoc &&\
+# install in order to make svg -> pdf conversation possible
+    apt-get install -f -y librsvg2-bin \
+                          librsvg2-common &&\
 # clean up all temporary files
     apt-get clean &&\
     apt-get autoclean -y &&\
