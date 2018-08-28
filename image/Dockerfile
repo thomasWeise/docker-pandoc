@@ -20,12 +20,15 @@ RUN apt-get clean &&\
     apt-get update &&\
 # install tzdata, which we will need down the line
     apt-get install -f -y tzdata &&\
-# install zlib1g, as we will need it later on
-    apt-get install -f -y zlib1g \
+# We install cabal, a Haskell package manager, because we want the newest
+# pandoc and filters which we can only get from there.
+# We also install zlib1g, as we will need it later on.
+# We install librsvg2 in order to make svg -> pdf conversation possible.
+    apt-get install -f -y cabal-install \
+                          librsvg2-bin \
+                          librsvg2-common \
+                          zlib1g \
                           zlib1g-dev &&\
-# we install cabal, a Haskell package manager, because we want the newest
-# pandoc and filters which we can only get from there
-    apt-get install -f -y cabal-install &&\
 # get the newest list of packages
     cabal update &&\
 # install the dependencies of the packages we want
@@ -39,9 +42,6 @@ RUN apt-get clean &&\
                   pandoc-citeproc \
                   pandoc-crossref \
                   latex-formulae-pandoc &&\
-# install in order to make svg -> pdf conversation possible
-    apt-get install -f -y librsvg2-bin \
-                          librsvg2-common &&\
 # clean up all temporary files
     apt-get clean &&\
     apt-get autoclean -y &&\
@@ -51,5 +51,8 @@ RUN apt-get clean &&\
     rm -rf /var/lib/apt/lists/* &&\
     rm -f /etc/ssh/ssh_host_*
 
+# we remember the path to pandoc in a special variable
+ENV PANDOC_DIR=/root/.cabal/bin/
+
 # add pandoc to the path
-ENV PATH=${PATH}:/root/.cabal/bin/
+ENV PATH=${PATH}:${PANDOC_DIR}
