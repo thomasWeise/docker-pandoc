@@ -35,11 +35,13 @@ RUN apt-get clean &&\
     cabal install --dependencies-only \
                   pandoc \
                   pandoc-citeproc \
+                  pandoc-citeproc-preamble \
                   pandoc-crossref \
                   latex-formulae-pandoc &&\
 # install the packages we want
     cabal install pandoc \
                   pandoc-citeproc \
+                  pandoc-citeproc-preamble \
                   pandoc-crossref \
                   latex-formulae-pandoc &&\
 # clean up all temporary files
