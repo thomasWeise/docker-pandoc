@@ -16,7 +16,11 @@ The image has the following components:
 - [`poppler-utils`](http://poppler.freedesktop.org/)
 - [`cabal`](http://www.haskell.org/cabal/)
 - [`pandoc`](http://pandoc.org/)
-- several `pandoc` filters, namely [`pandoc-citeproc`](http://github.com/jgm/pandoc-citeproc), [`pandoc-crossref`](http://github.com/lierdakil/pandoc-crossref), and [`latex-formulae-pandoc`](http://github.com/liamoc/latex-formulae)
+- several `pandoc` filters, namely
+   + [`pandoc-citeproc`](http://github.com/jgm/pandoc-citeproc),
+   + [`pandoc-citeproc-preamble`](http://github.com/spwhitton/pandoc-citeproc-preamble),
+   + [`pandoc-crossref`](http://github.com/lierdakil/pandoc-crossref), and
+   + [`latex-formulae-pandoc`](http://github.com/liamoc/latex-formulae)
 
 ## 2. License
 
