@@ -24,7 +24,9 @@ RUN apt-get clean &&\
 # pandoc and filters which we can only get from there.
 # We also install zlib1g, as we will need it later on.
 # We install librsvg2 in order to make svg -> pdf conversation possible.
+# imagemagick may be needed by the latex-formulae-pandoc filter
     apt-get install -f -y cabal-install \
+                          imagemagick \
                           librsvg2-bin \
                           librsvg2-common \
                           zlib1g \
