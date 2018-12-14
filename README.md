@@ -16,6 +16,7 @@ The image has the following components:
 - [`poppler-utils`](http://poppler.freedesktop.org/)
 - [`cabal`](http://www.haskell.org/cabal/)
 - [`pandoc`](http://pandoc.org/)
+- [`imagemagick`](http://www.imagemagick.org/)
 - several `pandoc` filters, namely
    + [`pandoc-citeproc`](http://github.com/jgm/pandoc-citeproc),
    + [`pandoc-crossref`](http://github.com/lierdakil/pandoc-crossref), and

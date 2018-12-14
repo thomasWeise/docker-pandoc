@@ -31,6 +31,9 @@ RUN apt-get clean &&\
                           librsvg2-common \
                           zlib1g \
                           zlib1g-dev &&\
+# fix the access rights for imagemagick
+  sed -i -e 's/rights="none"/rights="read|write"/g' /etc/ImageMagick-6/policy.xml &&\
+  sed -i -e 's/<\/policymap>/<policy domain="module" rights="read|write" pattern="{PS,PDF,XPS}" \/>\n<\/policymap>/g' /etc/ImageMagick-6/policy.xml &&\
 # get the newest list of packages
     cabal update &&\
 # install the dependencies of the packages we want
