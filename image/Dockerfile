@@ -38,32 +38,12 @@ RUN apt-get clean &&\
     cabal update &&\
 # install the dependencies of the packages we want
     cabal install --dependencies-only \
-                  --enable-executable-stripping \
-                  --enable-library-stripping \
-                  --enable-split-objs \
-                  --disable-executable-dynamic \
-                  --disable-debug-info \
-                  --disable-documentation \
-                  --disable-library-profiling \
-                  --disable-profiling \
-                  --disable-tests \
-                  --disable-benchmarks \
                   pandoc \
                   pandoc-citeproc \
                   pandoc-crossref \
                   latex-formulae-pandoc &&\
 # install the packages we want
-    cabal install --enable-executable-stripping \
-                  --enable-library-stripping \
-                  --enable-split-objs \
-                  --disable-executable-dynamic \
-                  --disable-debug-info \
-                  --disable-documentation \
-                  --disable-library-profiling \
-                  --disable-profiling \
-                  --disable-tests \
-                  --disable-benchmarks \
-                  pandoc \
+    cabal install pandoc \
                   pandoc-citeproc \
                   pandoc-crossref \
                   latex-formulae-pandoc &&\
