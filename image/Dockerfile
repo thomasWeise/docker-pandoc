@@ -44,6 +44,10 @@ RUN apt-get clean &&\
                   --disable-executable-dynamic \
                   --disable-debug-info \
                   --disable-documentation \
+                  --disable-library-profiling \
+                  --disable-profiling \
+                  --disable-tests \
+                  --disable-benchmarks \
                   pandoc \
                   pandoc-citeproc \
                   pandoc-crossref \
@@ -55,6 +59,10 @@ RUN apt-get clean &&\
                   --disable-executable-dynamic \
                   --disable-debug-info \
                   --disable-documentation \
+                  --disable-library-profiling \
+                  --disable-profiling \
+                  --disable-tests \
+                  --disable-benchmarks \
                   pandoc \
                   pandoc-citeproc \
                   pandoc-crossref \
