@@ -19,8 +19,9 @@ The image has the following components:
 - [`imagemagick`](http://www.imagemagick.org/)
 - several `pandoc` filters, namely
    + [`pandoc-citeproc`](http://github.com/jgm/pandoc-citeproc),
-   + [`pandoc-crossref`](http://github.com/lierdakil/pandoc-crossref), and
-   + [`latex-formulae-pandoc`](http://github.com/liamoc/latex-formulae)
+   + [`pandoc-crossref`](http://github.com/lierdakil/pandoc-crossref),
+   + [`latex-formulae-pandoc`](http://github.com/liamoc/latex-formulae), and
+   + [`pandoc-citeproc-preamble`](http://github.com/spwhitton/pandoc-citeproc-preamble)
 
 ## 2. License
 
