@@ -13,11 +13,7 @@
 FROM thomasweise/docker-texlive-full
 MAINTAINER Thomas Weise <tweise@hfuu.edu.cn>
 
-RUN apt-get clean &&\
-    apt-get update &&\
-    apt-get autoclean -y &&\
-    apt-get autoremove -y &&\
-    apt-get update &&\
+RUN apt-get update &&\
 # install tzdata, which we will need down the line
     apt-get install -f -y --no-install-recommends tzdata &&\
 # We install cabal, a Haskell package manager, because we want the newest
@@ -54,10 +50,6 @@ RUN apt-get clean &&\
     rm -rf /root/.cabal/logs &&\
     rm -rf /root/.cabal/packages &&\
 # clean up all temporary files
-    apt-get clean &&\
-    apt-get autoclean -y &&\
-    apt-get autoremove -y &&\
-    apt-get clean &&\
     rm -rf /tmp/* /var/tmp/* &&\
     rm -rf /var/lib/apt/lists/* &&\
     rm -f /etc/ssh/ssh_host_*
