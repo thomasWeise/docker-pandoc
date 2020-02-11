@@ -10,7 +10,7 @@
 # software components inside the image are under the respective
 # licenses chosen by their respective copyright holders.
 #
-FROM thomasweise/docker-texlive-full
+FROM thomasweise/docker-texlive-thin
 MAINTAINER Thomas Weise <tweise@hfuu.edu.cn>
 
 RUN apt-get update &&\
