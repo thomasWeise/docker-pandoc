@@ -47,6 +47,7 @@ RUN apt-get update &&\
                   pandoc-crossref \
                   latex-formulae-pandoc &&\
 # clear unnecessary cabal files
+    apt-get clean -y || true &&\
     rm -rf /root/.cabal/logs &&\
     rm -rf /root/.cabal/packages &&\
 # clean up all temporary files
