@@ -49,6 +49,7 @@ RUN apt-get update &&\
 # clear unnecessary cabal files
     rm -rf /root/.cabal/logs &&\
     rm -rf /root/.cabal/packages &&\
+    rm -rf /root/.cabal/lib &&\
     rm -rf /root/.cabal/share/doc &&\
     rm -rf /root/.cabal/share/man &&\
     find /root/.cabal/ -type f -empty -delete || true &&\
