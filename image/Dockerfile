@@ -47,13 +47,32 @@ RUN apt-get update &&\
                   pandoc-crossref \
                   latex-formulae-pandoc &&\
 # clear unnecessary cabal files
-    apt-get clean -y || true &&\
     rm -rf /root/.cabal/logs &&\
     rm -rf /root/.cabal/packages &&\
+    rm -rf /root/.cabal/share/doc &&\
+    rm -rf /root/.cabal/share/man &&\
+    find /root/.cabal/ -type f -empty -delete || true &&\
+    find /root/.cabal/ -type d -empty -delete || true &&\
 # clean up all temporary files
-    rm -rf /tmp/* /var/tmp/* &&\
+    apt-get clean -y &&\
     rm -rf /var/lib/apt/lists/* &&\
-    rm -f /etc/ssh/ssh_host_*
+    rm -f /etc/ssh/ssh_host_* &&\
+# delete man pages and documentation
+    rm -rf /usr/share/man &&\
+    mkdir -p /usr/share/man &&\
+    find /usr/share/doc -depth -type f ! -name copyright -delete &&\
+    find /usr/share/doc -type f -name "*.pdf" -delete &&\
+    find /usr/share/doc -type f -name "*.gz" -delete &&\
+    find /usr/share/doc -type f -name "*.tex" -delete &&\
+    find /usr/share/doc -type d -empty -delete || true &&\
+    mkdir -p /usr/share/doc &&\
+    rm -rf /var/cache/apt/archives &&\
+    mkdir -p /var/cache/apt/archives &&\
+    rm -rf /tmp/* /var/tmp/* &&\
+    find /usr/share/ -type f -empty -delete || true &&\
+    find /usr/share/ -type d -empty -delete || true &&\
+    mkdir -p /usr/share/texmf/source &&\
+    mkdir -p /usr/share/texlive/texmf-dist/source
 
 # we remember the path to pandoc in a special variable
 ENV PANDOC_DIR=/root/.cabal/bin/
