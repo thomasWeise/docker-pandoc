@@ -38,22 +38,33 @@ RUN echo "Initial update." &&\
     echo "Getting the newest list of cabal packages." &&\
     cabal update &&\
 # install the dependencies of the packages we want
-    echo "Installing depedencies of required pandoc packages via cabal." &&\
+    echo "Installing depedencies of pandoc via cabal." &&\
+    cabal install --dependencies-only \
+                  pandoc &&\
+    echo "Installing depedencies of pandoc-citeproc via cabal." &&\
+    cabal install --dependencies-only \
+                  pandoc-citeproc &&\
+    echo "Installing depedencies of pandoc-citeproc-preamble via cabal." &&\
+    cabal install --dependencies-only \
+                  pandoc-citeproc-preamble &&\
+    echo "Installing depedencies of pandoc-crossref via cabal." &&\
+    cabal install --dependencies-only \
+                  pandoc-crossref &&\
+    echo "Installing depedencies of latex-formulae-pandoc via cabal." &&\
     cabal install --dependencies-only \
                   --allow-newer=base \
-                  pandoc \
-                  pandoc-citeproc \
-                  pandoc-citeproc-preamble \
-                  pandoc-crossref \
                   latex-formulae-pandoc &&\
 # install the packages we want
-    echo "Installing required pandoc packages via cabal." &&\
-    cabal install --allow-newer=base \
-                  pandoc \
-                  pandoc-citeproc \
-                  pandoc-citeproc-preamble \
-                  pandoc-crossref \
-                  latex-formulae-pandoc &&\
+    echo "Installing pandoc via cabal." &&\
+    cabal install pandoc &&\
+    echo "Installing pandoc-citeproc via cabal." &&\
+    cabal install pandoc-citeproc &&\
+    echo "Installing pandoc-citeproc-preamble via cabal." &&\
+    cabal install pandoc-citeproc-preamble &&\
+    echo "Installing pandoc-crossref via cabal." &&\
+    cabal install pandoc-crossref &&\
+    echo "Installing latex-formulae-pandoc via cabal." &&\
+    cabal install latex-formulae-pandoc &&\
 # clear unnecessary cabal files
     echo "Performing cleanup of unnecessary cabal files." &&\
     rm -rf /root/.cabal/logs &&\
