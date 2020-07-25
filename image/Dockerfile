@@ -37,32 +37,32 @@ RUN echo "Initial update." &&\
 # get the newest list of packages
     echo "Getting the newest list of cabal packages." &&\
     cabal update &&\
+    cabal --version &&\
 # install the dependencies of the packages we want
     echo "Installing depedencies of pandoc via cabal." &&\
     cabal install --dependencies-only \
                   pandoc &&\
+    echo "Installing pandoc via cabal." &&\
+    cabal install pandoc &&\
+    /root/.cabal/bin/pandoc --help &&\
     echo "Installing depedencies of pandoc-citeproc via cabal." &&\
     cabal install --dependencies-only \
                   pandoc-citeproc &&\
+    echo "Installing pandoc-citeproc via cabal." &&\
+    cabal install pandoc-citeproc &&\
     echo "Installing depedencies of pandoc-citeproc-preamble via cabal." &&\
     cabal install --dependencies-only \
                   pandoc-citeproc-preamble &&\
+    echo "Installing pandoc-citeproc-preamble via cabal." &&\
+    cabal install pandoc-citeproc-preamble &&\
     echo "Installing depedencies of pandoc-crossref via cabal." &&\
     cabal install --dependencies-only \
                   pandoc-crossref &&\
-    echo "Installing depedencies of latex-formulae-pandoc via cabal." &&\
-    cabal install --dependencies-only \
-                  --allow-newer=base \
-                  latex-formulae-pandoc &&\
-# install the packages we want
-    echo "Installing pandoc via cabal." &&\
-    cabal install pandoc &&\
-    echo "Installing pandoc-citeproc via cabal." &&\
-    cabal install pandoc-citeproc &&\
-    echo "Installing pandoc-citeproc-preamble via cabal." &&\
-    cabal install pandoc-citeproc-preamble &&\
     echo "Installing pandoc-crossref via cabal." &&\
     cabal install pandoc-crossref &&\
+    echo "Installing depedencies of latex-formulae-pandoc via cabal." &&\
+    cabal install --dependencies-only \
+                  latex-formulae-pandoc &&\
     echo "Installing latex-formulae-pandoc via cabal." &&\
     cabal install latex-formulae-pandoc &&\
 # clear unnecessary cabal files
