@@ -41,30 +41,39 @@ RUN echo "Initial update." &&\
 # install the dependencies of the packages we want
     echo "Installing depedencies of pandoc via cabal." &&\
     cabal install --dependencies-only \
+                  --allow-newer=base \
                   pandoc &&\
     echo "Installing pandoc via cabal." &&\
-    cabal install pandoc &&\
+    cabal install --allow-newer=base \
+                  pandoc &&\
     /root/.cabal/bin/pandoc --help &&\
     echo "Installing depedencies of pandoc-citeproc via cabal." &&\
-    cabal install --dependencies-only \
+    cabal install --allow-newer=base \
+                  --dependencies-only \
                   pandoc-citeproc &&\
     echo "Installing pandoc-citeproc via cabal." &&\
-    cabal install pandoc-citeproc &&\
+    cabal install --allow-newer=base \
+                  pandoc-citeproc &&\
     echo "Installing depedencies of pandoc-citeproc-preamble via cabal." &&\
-    cabal install --dependencies-only \
+    cabal install --allow-newer=base \
+                  --dependencies-only \
                   pandoc-citeproc-preamble &&\
     echo "Installing pandoc-citeproc-preamble via cabal." &&\
-    cabal install pandoc-citeproc-preamble &&\
+    cabal install --allow-newer=base \
+                  pandoc-citeproc-preamble &&\
     echo "Installing depedencies of pandoc-crossref via cabal." &&\
-    cabal install --dependencies-only \
+    cabal install --allow-newer=base \
+                  --dependencies-only \
                   pandoc-crossref &&\
     echo "Installing pandoc-crossref via cabal." &&\
     cabal install pandoc-crossref &&\
     echo "Installing depedencies of latex-formulae-pandoc via cabal." &&\
-    cabal install --dependencies-only \
+    cabal install --allow-newer=base \
+                  --dependencies-only \
                   latex-formulae-pandoc &&\
     echo "Installing latex-formulae-pandoc via cabal." &&\
-    cabal install latex-formulae-pandoc &&\
+    cabal install --allow-newer=base \
+                  latex-formulae-pandoc &&\
 # clear unnecessary cabal files
     echo "Performing cleanup of unnecessary cabal files." &&\
     rm -rf /root/.cabal/logs &&\
@@ -72,8 +81,8 @@ RUN echo "Initial update." &&\
     rm -rf /root/.cabal/lib &&\
     rm -rf /root/.cabal/share/doc &&\
     rm -rf /root/.cabal/share/man &&\
-    find /root/.cabal/ -type f -empty -delete || true &&\
-    find /root/.cabal/ -type d -empty -delete || true &&\
+    (find /root/.cabal/ -type f -empty -delete || true) &&\
+    (find /root/.cabal/ -type d -empty -delete || true) &&\
 # clean up all temporary files
     echo "Performing more cleanup." &&\
     apt-get clean -y &&\
@@ -87,13 +96,13 @@ RUN echo "Initial update." &&\
     find /usr/share/doc -type f -name "*.pdf" -delete &&\
     find /usr/share/doc -type f -name "*.gz" -delete &&\
     find /usr/share/doc -type f -name "*.tex" -delete &&\
-    find /usr/share/doc -type d -empty -delete || true &&\
+    (find /usr/share/doc -type d -empty -delete || true) &&\
     mkdir -p /usr/share/doc &&\
     rm -rf /var/cache/apt/archives &&\
     mkdir -p /var/cache/apt/archives &&\
     rm -rf /tmp/* /var/tmp/* &&\
-    find /usr/share/ -type f -empty -delete || true &&\
-    find /usr/share/ -type d -empty -delete || true &&\
+    (find /usr/share/ -type f -empty -delete || true) &&\
+    (find /usr/share/ -type d -empty -delete || true) &&\
     mkdir -p /usr/share/texmf/source &&\
     mkdir -p /usr/share/texlive/texmf-dist/source &&\
     echo "Done."
