@@ -40,48 +40,21 @@ RUN echo "Initial update." &&\
 # get the newest list of packages
     echo "Getting the newest list of cabal packages." &&\
     cabal update &&\
-# install the dependencies of the packages we want
-    echo "Installing depedencies of QuickCheck via cabal." &&\
-    cabal install --dependencies-only \
-                  --lib \
-                  QuickCheck &&\
     echo "Installing QuickCheck via cabal." &&\
     cabal install --lib \
                   QuickCheck &&\
-    echo "Installing depedencies of pandoc via cabal." &&\
-    cabal install --dependencies-only \
-                  --allow-newer=base \
-                  pandoc &&\
     echo "Installing pandoc via cabal." &&\
     cabal install --allow-newer=base \
                   pandoc &&\
-    echo "Installing depedencies of pandoc-citeproc via cabal." &&\
-    cabal install --allow-newer=base \
-                  --dependencies-only \
-                  --verbose=3 \
                   pandoc-citeproc &&\
     echo "Installing pandoc-citeproc via cabal." &&\
     cabal install --allow-newer=base \
-                  --verbose=3 \
                   pandoc-citeproc &&\
-    echo "Installing depedencies of pandoc-citeproc-preamble via cabal." &&\
-    cabal install --allow-newer=base \
-                  --dependencies-only \
-                  pandoc-citeproc-preamble &&\
     echo "Installing pandoc-citeproc-preamble via cabal." &&\
     cabal install --allow-newer=base \
                   pandoc-citeproc-preamble &&\
-    echo "Installing depedencies of pandoc-crossref via cabal." &&\
-    cabal install --allow-newer=base \
-                  --dependencies-only \
-                  pandoc-crossref &&\
     echo "Installing pandoc-crossref via cabal." &&\
     cabal install pandoc-crossref &&\
-    echo "Installing depedencies of latex-formulae-pandoc via cabal." &&\
-    cabal install --allow-newer=base \
-                  --allow-newer=QuickCheck \
-                  --dependencies-only \
-                  latex-formulae-pandoc &&\
     echo "Installing latex-formulae-pandoc via cabal." &&\
     cabal install --allow-newer=base \
                   --allow-newer=QuickCheck \
