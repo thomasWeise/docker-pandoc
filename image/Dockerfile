@@ -44,35 +44,44 @@ RUN echo "Initial update." &&\
     echo "Installing depedencies of QuickCheck via cabal." &&\
     cabal install --dependencies-only \
                   --lib \
+                  --verbose=3 \
                   QuickCheck &&\
     echo "Installing QuickCheck via cabal." &&\
     cabal install --lib \
+                  --verbose=3 \
                   QuickCheck &&\
     echo "Installing depedencies of pandoc via cabal." &&\
     cabal install --dependencies-only \
                   --allow-newer=base \
+                  --verbose=3 \
                   pandoc &&\
     echo "Installing pandoc via cabal." &&\
     cabal install --allow-newer=base \
+                  --verbose=3 \
                   pandoc &&\
     /root/.cabal/bin/pandoc --help &&\
     echo "Installing depedencies of pandoc-citeproc via cabal." &&\
     cabal install --allow-newer=base \
                   --dependencies-only \
+                  --verbose=3 \
                   pandoc-citeproc &&\
     echo "Installing pandoc-citeproc via cabal." &&\
     cabal install --allow-newer=base \
+                  --verbose=3 \
                   pandoc-citeproc &&\
     echo "Installing depedencies of pandoc-citeproc-preamble via cabal." &&\
     cabal install --allow-newer=base \
                   --dependencies-only \
+                  --verbose=3 \
                   pandoc-citeproc-preamble &&\
     echo "Installing pandoc-citeproc-preamble via cabal." &&\
     cabal install --allow-newer=base \
+                  --verbose=3 \
                   pandoc-citeproc-preamble &&\
     echo "Installing depedencies of pandoc-crossref via cabal." &&\
     cabal install --allow-newer=base \
                   --dependencies-only \
+                  --verbose=3 \
                   pandoc-crossref &&\
     echo "Installing pandoc-crossref via cabal." &&\
     cabal install pandoc-crossref &&\
@@ -80,10 +89,12 @@ RUN echo "Initial update." &&\
     cabal install --allow-newer=base \
                   --allow-newer=QuickCheck \
                   --dependencies-only \
+                  --verbose=3 \
                   latex-formulae-pandoc &&\
     echo "Installing latex-formulae-pandoc via cabal." &&\
     cabal install --allow-newer=base \
                   --allow-newer=QuickCheck \
+                  --verbose=3 \
                   latex-formulae-pandoc &&\
 # clear unnecessary cabal files
     echo "Performing cleanup of unnecessary cabal files." &&\
