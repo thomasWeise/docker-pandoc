@@ -10,7 +10,7 @@
 # software components inside the image are under the respective
 # licenses chosen by their respective copyright holders.
 #
-FROM thomasweise/docker-texlive-thin
+FROM thomasweise/docker-texlive-thin:1.0
 MAINTAINER Thomas Weise <tweise@hfuu.edu.cn>
 
 RUN echo "Initial update." &&\
@@ -34,11 +34,20 @@ RUN echo "Initial update." &&\
   echo "Fixing access rights for imagemagick." &&\
   sed -i -e 's/rights="none"/rights="read|write"/g' /etc/ImageMagick-6/policy.xml &&\
   sed -i -e 's/<\/policymap>/<policy domain="module" rights="read|write" pattern="{PS,PDF,XPS}" \/>\n<\/policymap>/g' /etc/ImageMagick-6/policy.xml &&\
+# print the versions of cabal and ghc
+    cabal --version &&\
+    ghc --version &&\
 # get the newest list of packages
     echo "Getting the newest list of cabal packages." &&\
     cabal update &&\
-    cabal --version &&\
 # install the dependencies of the packages we want
+    echo "Installing depedencies of QuickCheck via cabal." &&\
+    cabal install --dependencies-only \
+                  --lib \
+                  QuickCheck &&\
+    echo "Installing QuickCheck via cabal." &&\
+    cabal install --lib \
+                  QuickCheck &&\
     echo "Installing depedencies of pandoc via cabal." &&\
     cabal install --dependencies-only \
                   --allow-newer=base \
@@ -69,10 +78,12 @@ RUN echo "Initial update." &&\
     cabal install pandoc-crossref &&\
     echo "Installing depedencies of latex-formulae-pandoc via cabal." &&\
     cabal install --allow-newer=base \
+                  --allow-newer=QuickCheck \
                   --dependencies-only \
                   latex-formulae-pandoc &&\
     echo "Installing latex-formulae-pandoc via cabal." &&\
     cabal install --allow-newer=base \
+                  --allow-newer=QuickCheck \
                   latex-formulae-pandoc &&\
 # clear unnecessary cabal files
     echo "Performing cleanup of unnecessary cabal files." &&\
