@@ -41,21 +41,27 @@ RUN echo "Initial update." &&\
     echo "Getting the newest list of cabal packages." &&\
     cabal update &&\
     echo "Installing QuickCheck via cabal." &&\
-    cabal install --lib \
+    cabal install --ghc-options='+RTS -M1G -RTS' \
+                  --lib \
                   QuickCheck &&\
     echo "Installing pandoc via cabal." &&\
-    cabal install --allow-newer=base \
+    cabal install --ghc-options='+RTS -M1G -RTS' \
+                  --allow-newer=base \
                   pandoc &&\
     echo "Installing pandoc-citeproc via cabal." &&\
-    cabal install --allow-newer=base \
+    cabal install --ghc-options='+RTS -M1G -RTS' \
+                  --allow-newer=base \
                   pandoc-citeproc &&\
     echo "Installing pandoc-citeproc-preamble via cabal." &&\
-    cabal install --allow-newer=base \
+    cabal install --ghc-options='+RTS -M1G -RTS' \
+                  --allow-newer=base \
                   pandoc-citeproc-preamble &&\
     echo "Installing pandoc-crossref via cabal." &&\
-    cabal install pandoc-crossref &&\
+    cabal install --ghc-options='+RTS -M1G -RTS' \
+                  pandoc-crossref &&\
     echo "Installing latex-formulae-pandoc via cabal." &&\
-    cabal install --allow-newer=base \
+    cabal install --ghc-options='+RTS -M1G -RTS' \
+                  --allow-newer=base \
                   --allow-newer=QuickCheck \
                   latex-formulae-pandoc &&\
 # clear unnecessary cabal files
