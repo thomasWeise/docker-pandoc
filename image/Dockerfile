@@ -41,26 +41,26 @@ RUN echo "Initial update." &&\
     echo "Getting the newest list of cabal packages." &&\
     cabal update &&\
     echo "Installing QuickCheck via cabal." &&\
-    cabal install --ghc-options='+RTS -M1G -RTS' \
+    cabal install --ghc-options='+RTS -M2G -RTS' \
                   --lib \
                   QuickCheck &&\
     echo "Installing pandoc via cabal." &&\
-    cabal install --ghc-options='+RTS -M1G -RTS' \
+    cabal install --ghc-options='+RTS -M2G -RTS' \
                   --allow-newer=base \
                   pandoc &&\
     echo "Installing pandoc-citeproc via cabal." &&\
-    cabal install --ghc-options='+RTS -M1G -RTS' \
+    cabal install --ghc-options='+RTS -M2G -RTS' \
                   --allow-newer=base \
                   pandoc-citeproc &&\
     echo "Installing pandoc-citeproc-preamble via cabal." &&\
-    cabal install --ghc-options='+RTS -M1G -RTS' \
+    cabal install --ghc-options='+RTS -M2G -RTS' \
                   --allow-newer=base \
                   pandoc-citeproc-preamble &&\
     echo "Installing pandoc-crossref via cabal." &&\
-    cabal install --ghc-options='+RTS -M1G -RTS' \
+    cabal install --ghc-options='+RTS -M2G -RTS' \
                   pandoc-crossref &&\
     echo "Installing latex-formulae-pandoc via cabal." &&\
-    cabal install --ghc-options='+RTS -M1G -RTS' \
+    cabal install --ghc-options='+RTS -M2G -RTS' \
                   --allow-newer=base \
                   --allow-newer=QuickCheck \
                   latex-formulae-pandoc &&\
