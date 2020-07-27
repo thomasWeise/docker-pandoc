@@ -46,7 +46,6 @@ RUN echo "Initial update." &&\
     echo "Installing pandoc via cabal." &&\
     cabal install --allow-newer=base \
                   pandoc &&\
-                  pandoc-citeproc &&\
     echo "Installing pandoc-citeproc via cabal." &&\
     cabal install --allow-newer=base \
                   pandoc-citeproc &&\
