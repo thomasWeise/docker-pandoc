@@ -73,6 +73,11 @@ RUN echo "Initial update." &&\
     rm -rf /root/.cabal/share/man &&\
     (find /root/.cabal/ -type f -empty -delete || true) &&\
     (find /root/.cabal/ -type d -empty -delete || true) &&\
+# remove cabal-install and dependencies
+    echo "Removing cabal-install and its dependencies. They are no longer needed." &&\
+    apt-get purge -f -y cabal-install &&\
+    apt-get autoremove -f -y &&\
+    apt-get autoclean -y &&\
 # clean up all temporary files
     echo "Performing more cleanup." &&\
     apt-get clean -y &&\
