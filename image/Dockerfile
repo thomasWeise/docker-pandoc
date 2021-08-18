@@ -10,7 +10,7 @@
 # software components inside the image are under the respective
 # licenses chosen by their respective copyright holders.
 #
-FROM thomasweise/docker-texlive-thin:1.0
+FROM thomasweise/docker-texlive-thin:2.0
 MAINTAINER Thomas Weise <tweise@hfuu.edu.cn>
 
 RUN echo "Initial update." &&\
