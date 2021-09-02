@@ -10,7 +10,7 @@
 # software components inside the image are under the respective
 # licenses chosen by their respective copyright holders.
 #
-FROM thomasweise/docker-texlive-thin:2.0
+FROM thomasweise/docker-texlive-thin:3.0
 MAINTAINER Thomas Weise <tweise@hfuu.edu.cn>
 
 RUN echo "Initial update." &&\
@@ -75,7 +75,9 @@ RUN echo "Initial update." &&\
     (find /root/.cabal/ -type d -empty -delete || true) &&\
 # remove cabal-install and dependencies
     echo "Removing cabal-install and its dependencies. They are no longer needed." &&\
-    apt-get purge -f -y cabal-install &&\
+    apt-get purge -f -y cabal-install ghc &&\
+    apt-get autoremove -f -y &&\
+    apt-get autoclean -y &&\
     apt-get autoremove -f -y &&\
     apt-get autoclean -y &&\
 # clean up all temporary files
