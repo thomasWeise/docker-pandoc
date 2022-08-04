@@ -4,3 +4,4 @@
 .Ruserdata
 docker-pandoc.Rproj
 *.Rproj
+.project
